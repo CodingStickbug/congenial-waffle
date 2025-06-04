@@ -4,6 +4,12 @@ void main() {
   runApp(const MyApp());
 }
 
+String name = "mammoth";
+int number = 1;
+double float = 1.25;
+List myList = ["hellow", "world"];
+Map myMap = {"String": "wow"};
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -11,6 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -28,7 +35,10 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color.fromARGB(255, 161, 85, 13),
+          brightness: Brightness.dark,
+        ),
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -88,7 +98,37 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: Text("hello there", style: TextStyle(color: Color.fromARGB(192, 28, 3, 250), decoration: TextDecoration.underline))
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              padding: EdgeInsets.all(25.0),
+              height: 100.00,
+              width: 1000.00,
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 161, 85, 13),
+                borderRadius: BorderRadius.circular(10.00)
+              ),
+              child: Text(
+                "THIS is the X38 TRAINING course!",
+                style: TextStyle(color: Color.fromARGB(255, 255, 255, 255))
+              )
+            ),
+            Container(
+              padding: EdgeInsets.all(25.0),
+              margin: EdgeInsets.only(top: 25.0),
+              height: 100.00,
+              width: 1000.00,
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 161, 85, 13),
+                borderRadius: BorderRadius.circular(10.00)
+              ),
+              child: Text(
+                "THIS is a T E S T",
+              ),
+            ),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
