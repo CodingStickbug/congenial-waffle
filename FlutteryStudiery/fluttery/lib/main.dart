@@ -20,21 +20,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(
           seedColor: const Color.fromARGB(255, 161, 85, 13),
           brightness: Brightness.dark,
@@ -48,15 +33,6 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
   final String title;
 
   @override
@@ -64,67 +40,43 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
   void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        title: Text(
+          widget.title,
+          style: TextStyle(color: Color.fromARGB(237, 247, 198, 63)),
+        ),
+        leading: Icon(Icons.home, color: Color.fromARGB(237, 247, 198, 63)),
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+      body: Container(
+        padding: EdgeInsets.all(50.0),
+        child: Stack(
           children: [
-            Container(
-              padding: EdgeInsets.all(25.0),
-              height: 100.00,
-              width: 1000.00,
-              decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 161, 85, 13),
-                borderRadius: BorderRadius.circular(10.00)
-              ),
-              child: Text(
-                "THIS is the X38 TRAINING course!",
-                style: TextStyle(color: Color.fromARGB(255, 255, 255, 255))
-              )
+            Image.asset(
+              "assets/images/hl.jpg",
+              fit: BoxFit.cover,
+              width: double.infinity,
             ),
-            Container(
-              padding: EdgeInsets.all(25.0),
-              margin: EdgeInsets.only(top: 25.0),
-              height: 100.00,
-              width: 1000.00,
-              decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 161, 85, 13),
-                borderRadius: BorderRadius.circular(10.00)
-              ),
+            Center(
               child: Text(
-                "THIS is a T E S T",
+                "Half Life: 3",
+                style: TextStyle(
+                  color: Color.fromARGB(255, 221, 152, 3),
+                  fontSize: 25.0,
+                ),
+              ),
+            ),
+            ListTile(
+              tileColor: Colors.red,
+              title: Text(
+                "ListTile",
               ),
             ),
           ],
@@ -134,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }
