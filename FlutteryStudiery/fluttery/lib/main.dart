@@ -55,32 +55,9 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         leading: Icon(Icons.home, color: Color.fromARGB(237, 247, 198, 63)),
       ),
-      body: Container(
-        padding: EdgeInsets.all(50.0),
-        child: Stack(
-          children: [
-            Image.asset(
-              "assets/images/hl.jpg",
-              fit: BoxFit.cover,
-              width: double.infinity,
-            ),
-            Center(
-              child: Text(
-                "Half Life: 3",
-                style: TextStyle(
-                  color: Color.fromARGB(255, 221, 152, 3),
-                  fontSize: 25.0,
-                ),
-              ),
-            ),
-            ListTile(
-              tileColor: Colors.red,
-              title: Text(
-                "ListTile",
-              ),
-            ),
-          ],
-        ),
+      body: Wrap(children: [
+          Center(child: Text("Does he know about the D O R E ?")),
+        ] ,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
