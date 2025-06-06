@@ -1,35 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:fluttery/views/widget_tree.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Color.fromARGB(211, 187, 117, 12),
+          seedColor: Color.fromARGB(176, 255, 153, 0),
           brightness: Brightness.dark,
         ),
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Center(child: Text("The best damned flutter application")),
-          backgroundColor: Color.fromARGB(211, 187, 117, 12),
-        ),
-        bottomNavigationBar: NavigationBar(
-          destinations: [
-            NavigationDestination(icon: Icon(Icons.home), label: "Home"),
-            NavigationDestination(icon: Icon(Icons.person), label: "Account"),
-          ],
-          selectedIndex: 1,
-        ),
-      ),
+      home: WidgetTree()
     );
   }
 }
