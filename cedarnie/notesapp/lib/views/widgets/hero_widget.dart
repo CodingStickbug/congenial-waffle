@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
 class HeroWidget extends StatelessWidget {
-  const HeroWidget({super.key, required this.title});
-
-  final String title;
+  const HeroWidget({super.key,});
 
   @override
   Widget build(BuildContext context) {
@@ -18,16 +16,6 @@ class HeroWidget extends StatelessWidget {
               "assets/images/fnv.jpg",
               color: Color.fromARGB(129, 255, 153, 0),
               colorBlendMode: BlendMode.modulate,
-            ),
-          ),
-        ),
-        FittedBox(
-          child: Text(
-            title,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 50,
-              letterSpacing: 20,
             ),
           ),
         ),

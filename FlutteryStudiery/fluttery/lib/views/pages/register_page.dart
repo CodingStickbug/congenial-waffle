@@ -3,6 +3,7 @@ import 'package:fluttery/data/constants.dart';
 import 'package:fluttery/data/notifiers.dart';
 import 'package:fluttery/views/widget_tree.dart';
 import 'package:fluttery/views/widgets/hero_widget.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -37,8 +38,14 @@ class _RegisterPageState extends State<RegisterPage> {
         ),
         actions: [
           IconButton(
-            onPressed: () {
+            onPressed: () async {
               isDarkModeNotifier.value = !isDarkModeNotifier.value;
+              final SharedPreferences prefs =
+                  await SharedPreferences.getInstance();
+              await prefs.setBool(
+                KConstants.themeModeKey,
+                isDarkModeNotifier.value,
+              );
             },
             icon: ValueListenableBuilder(
               valueListenable: isDarkModeNotifier,

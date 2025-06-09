@@ -1,5 +1,9 @@
 import 'package:flutter/widgets.dart';
 
+class KConstants {
+  static const String themeModeKey = "themeModeKey";
+}
+
 class HTextStyle {
   static const TextStyle titleText = TextStyle(
     fontSize: 23,

@@ -5,6 +5,7 @@ import 'package:fluttery/views/pages/home_page.dart';
 import 'package:fluttery/views/pages/profile_page.dart';
 import 'package:fluttery/views/pages/settings_page.dart';
 import 'package:fluttery/views/widgets/navfile_widget.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 List<Widget> pages = [HomePage(), ProfilePage()];
 
@@ -16,17 +17,29 @@ class WidgetTree extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(176, 255, 153, 0),
-        leading: Icon(Icons.notes_rounded, color: Colors.white,),
-        title: Text("The best damned Flutter application", style: HTextStyle.mainHeaderText,),
+        leading: Icon(Icons.notes_rounded, color: Colors.white),
+        title: Text(
+          "The best damned Flutter application",
+          style: HTextStyle.mainHeaderText,
+        ),
         actions: [
           IconButton(
-            onPressed: () {
+            onPressed: () async {
               isDarkModeNotifier.value = !isDarkModeNotifier.value;
+              final SharedPreferences prefs =
+                  await SharedPreferences.getInstance();
+              await prefs.setBool(
+                KConstants.themeModeKey,
+                isDarkModeNotifier.value,
+              );
             },
             icon: ValueListenableBuilder(
               valueListenable: isDarkModeNotifier,
               builder: (context, isDarkmode, child) {
-                return Icon(isDarkmode ? Icons.light_mode : Icons.dark_mode, color: Colors.white,);
+                return Icon(
+                  isDarkmode ? Icons.light_mode : Icons.dark_mode,
+                  color: Colors.white,
+                );
               },
             ),
           ),
@@ -36,12 +49,12 @@ class WidgetTree extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return SettingsPage(title: "Settings",);
+                    return SettingsPage(title: "Settings");
                   },
                 ),
               );
             },
-            icon: Icon(Icons.settings, color: Colors.white,),
+            icon: Icon(Icons.settings, color: Colors.white),
           ),
         ],
       ),
