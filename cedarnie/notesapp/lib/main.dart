@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:notesapp/data/database/boxes.dart';
+import 'package:notesapp/data/database/note.dart';
 import 'package:notesapp/views/widgets/widget_tree.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+Future<void> main() async {
+  await Hive.initFlutter();
+  Hive.registerAdapter(NoteAdapter());
+  boxNotes = await Hive.openBox<Note>('noteBox');
   runApp(const MyApp());
 }
 
@@ -12,7 +19,20 @@ class MyApp extends StatefulWidget {
   State<MyApp> createState() => _MyAppState();
 }
 
+
 class _MyAppState extends State<MyApp> {
+
+  @override
+  void initState() {
+    super.initState();
+    initThememode();
+  }
+
+  Future<void> initThememode() async {
+    // ignore: unused_local_variable
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
