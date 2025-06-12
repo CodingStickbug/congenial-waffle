@@ -37,6 +37,7 @@ class _ViewNotesPageState extends State<ViewNotesPage> {
                       ),
                       tileColor: Color.fromARGB(113, 0, 0, 0),
                       contentPadding: EdgeInsets.all(8),
+                      // Push to view individual note, provide noteId for notePage()
                       onTap: () {
                         setState(() {
                           Navigator.push(
@@ -51,7 +52,6 @@ class _ViewNotesPageState extends State<ViewNotesPage> {
                       },
                       // Note information
                       title: Text(note.title),
-                      subtitle: Text("Note name"),
                       // Delete Notes
                       trailing: IconButton(
                         onPressed: () {
@@ -63,7 +63,12 @@ class _ViewNotesPageState extends State<ViewNotesPage> {
                                 actionsAlignment: MainAxisAlignment.center,
                                 icon: Icon(Icons.delete),
                                 title: Text("Are you sure you want to delete?"),
-                                content: Text("This action cannot be undone."),
+                                content: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text("This action cannot be undone."),
+                                  ],
+                                ),
                                 actions: [
                                   // Confirm DELETION
                                   FilledButton(

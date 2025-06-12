@@ -1,5 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
+// S.G DO NOT DO ANYTHING HERE: IT'S GENERATED CODE. WILL NOT COMMENT FURTHER. FURTHER COMMENTS HERE ARE GENERATED
+
 part of 'note.dart';
 
 // **************************************************************************

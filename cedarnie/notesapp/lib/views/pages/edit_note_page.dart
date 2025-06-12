@@ -1,32 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:notesapp/data/database/boxes.dart';
-import 'package:notesapp/views/pages/edit_note_page.dart';
+import 'package:notesapp/views/pages/note_page.dart';
 import 'package:notesapp/views/widgets/hero_widget.dart';
-import 'package:notesapp/views/widgets/widget_tree.dart';
 
-class NotePage extends StatefulWidget {
+class EditNotePage extends StatefulWidget {
   // Get noteId from ViewNotes()
-  const NotePage({super.key, required this.noteId});
-
+  const EditNotePage({super.key, required this.noteId});
   final String noteId;
 
   @override
-  State<NotePage> createState() => _NotePageState();
+  State<EditNotePage> createState() => _EditNotePageState();
 }
 
-class _NotePageState extends State<NotePage> {
+class _EditNotePageState extends State<EditNotePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(206, 201, 133, 8),
         title: Text("Note's App"),
-        // Return to Previous page/ViewNotesPage()
         leading: TextButton(
           onPressed: () {
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-              return WidgetTree();
-            },));
+            Navigator.pop(context);
           },
           child: Icon(
             Icons.close,
@@ -48,12 +43,14 @@ class _NotePageState extends State<NotePage> {
                     final note = boxNotes.values.firstWhere(
                       (note) => note.title == widget.noteId,
                     );
+                    TextEditingController noteDesciption =
+                        TextEditingController()..text = note.description;
                     // Display information from database
                     return ListTile(
                       title: SingleChildScrollView(
                         child: Column(
                           children: [
-                            // Note title
+                            // Title: unchangeable. (for now at least, might update later)
                             Text(
                               note.title,
                               style: TextStyle(
@@ -61,26 +58,36 @@ class _NotePageState extends State<NotePage> {
                                 fontSize: 30,
                               ),
                             ),
-                            // Edit note. (Re-directs user to similar page where they can edit and save note)
-                            TextButton(
-                              onPressed: () {
-                                setState(() {
-                                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                                    return EditNotePage(noteId: note.title,);
-                                  },));
-                                });
-                              },
-                              child: Icon(Icons.edit, color: Colors.white),
-                            ),
                             Divider(),
-                            // Description of note
+                            // Note description: can now be edited by user
                             Container(
                               padding: EdgeInsets.all(8.0),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10.0),
                                 color: Color.fromARGB(113, 0, 0, 0),
                               ),
-                              child: Text(note.description),
+                              child: TextField(
+                                maxLines: null,
+                                controller: noteDesciption,
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            // Saves the new note description and re-directs to NotePage()
+                            FilledButton(
+                              onPressed: () {
+                                setState(() {
+                                  boxNotes.put(
+                                    "key_${note.title}",
+                                    note.copyWith(
+                                      description: noteDesciption.text,
+                                    ),
+                                  );
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                                    return NotePage(noteId: note.title);
+                                  },));
+                                });
+                              },
+                              child: Text("Save Note"),
                             ),
                           ],
                         ),

@@ -5,6 +5,8 @@ import 'package:notesapp/data/database/note.dart';
 import 'package:notesapp/views/widgets/widget_tree.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+// The main file that links it all together. This runs the program
+
 Future<void> main() async {
   // Initialize Notes Database
   await Hive.initFlutter();
