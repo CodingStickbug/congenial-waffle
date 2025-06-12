@@ -4,6 +4,7 @@ import 'package:notesapp/views/pages/add_note_page.dart';
 import 'package:notesapp/views/pages/view_notes_page.dart';
 import 'package:notesapp/views/widgets/navbar_widget.dart';
 
+// List for Navigation bar
 List<Widget> pages = [AddNotePage(), ViewNotesPage()];
 
 class WidgetTree extends StatelessWidget {
@@ -17,12 +18,14 @@ class WidgetTree extends StatelessWidget {
         title: Text("Note's App"),
         leading: Icon(Icons.note_alt, size: 50.0),
       ),
+      // Call selected page on the Pages list
       body: ValueListenableBuilder(
         valueListenable: selectedPageNotifier,
         builder: (context, selectedPage, child) {
           return pages.elementAt(selectedPage);
         },
       ),
+      // Update/Use the navigation bar
       bottomNavigationBar: NavbarWidget(),
     );
   }

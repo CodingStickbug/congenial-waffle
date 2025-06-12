@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+// Hero widget (AKA background image that looks cool)
+
 class HeroWidget extends StatelessWidget {
   const HeroWidget({super.key,});
 

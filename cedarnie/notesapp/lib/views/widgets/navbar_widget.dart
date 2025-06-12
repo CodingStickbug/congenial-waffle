@@ -6,9 +6,11 @@ class NavbarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Listen for update to the Selected Page
     return ValueListenableBuilder(
       valueListenable: selectedPageNotifier,
       builder: (context, selectedPage, child) {
+        // Bottom Navigation bar
         return NavigationBar(
           destinations: [
             NavigationDestination(
@@ -20,9 +22,11 @@ class NavbarWidget extends StatelessWidget {
               label: "View Notes",
             ),
           ],
+          // Change selected page value for both Navigation and keeping track of page
           onDestinationSelected: (int value) {
             selectedPageNotifier.value = value;
           },
+          // Change index of Navigation bar
           selectedIndex: selectedPage,
         );
       },
