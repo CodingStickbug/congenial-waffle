@@ -76,12 +76,20 @@ class _AddNotePageState extends State<AddNotePage> {
                       ElevatedButton(
                         onPressed: () {
                           setState(() {
+                            // Check if note already exists
+                            
                             // Pop up to give the user confirmation that the note was created succesfuly
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
+                                behavior: SnackBarBehavior.floating,
                                 backgroundColor: Color.fromARGB(113, 0, 0, 0),
-                                content: Center(child: Text("Note Created!", style: TextStyle(color: Colors.white),))
-                              )
+                                content: Center(
+                                  child: Text(
+                                    "Note Created!",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                ),
+                              ),
                             );
                             // Saves the note into the database
                             boxNotes.put(

@@ -10,4 +10,14 @@ class Note {
 
   @HiveField(1)
   String description;
+
+  Note copyWith({
+    String? title,
+    String? description,
+  }) {
+    return Note(
+      title: title ?? this.title,
+      description: description ?? this.description,
+    );
+  }
 }
