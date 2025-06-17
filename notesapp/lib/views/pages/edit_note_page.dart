@@ -54,8 +54,11 @@ class _EditNotePageState extends State<EditNotePage> {
                             Container(
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(12),
-                                color: const Color.fromARGB(213, 0, 0, 0),
+                                color: const Color.fromARGB(155, 0, 0, 0),
                               ),
+                              alignment: Alignment.center,
+                              padding: EdgeInsets.all(8.0),
+                              width: double.infinity,
                               child: Text(
                                 note.title,
                                 style: TextStyle(

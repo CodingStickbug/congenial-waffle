@@ -19,12 +19,17 @@ class _NotePageState extends State<NotePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(218, 41, 39, 39),
-        title: Text("Note's App", style: TextStyle(color: Colors.white),),
+        title: Text("Note's App", style: TextStyle(color: Colors.white)),
         leading: TextButton(
           onPressed: () {
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-              return WidgetTree();
-            },));
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return WidgetTree();
+                },
+              ),
+            );
           },
           child: Icon(
             Icons.close,
@@ -38,7 +43,7 @@ class _NotePageState extends State<NotePage> {
         child: Center(
           child: Stack(
             children: [
-              Center(child: HeroWidget(),),
+              Center(child: HeroWidget()),
               Center(
                 // Load information of note from database
                 child: Builder(
@@ -55,7 +60,7 @@ class _NotePageState extends State<NotePage> {
                             Container(
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(12),
-                                color: const Color.fromARGB(213, 0, 0, 0),
+                                color: const Color.fromARGB(155, 0, 0, 0),
                               ),
                               alignment: Alignment.center,
                               padding: EdgeInsets.all(8.0),
@@ -69,14 +74,22 @@ class _NotePageState extends State<NotePage> {
                                 ),
                               ),
                             ),
+                            SizedBox(height: 5),
                             // Edit note. (Re-directs user to similar page where they can edit and save note)
                             ElevatedButton(
-                              style: ElevatedButton.styleFrom(backgroundColor: Color.fromARGB(213, 0, 0, 0)),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Color.fromARGB(226, 0, 0, 0),
+                              ),
                               onPressed: () {
                                 setState(() {
-                                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                                    return EditNotePage(noteId: note.title,);
-                                  },));
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) {
+                                        return EditNotePage(noteId: note.title);
+                                      },
+                                    ),
+                                  );
                                 });
                               },
                               child: Icon(Icons.edit, color: Colors.white),
@@ -87,9 +100,16 @@ class _NotePageState extends State<NotePage> {
                               padding: EdgeInsets.all(8.0),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10.0),
-                                color: Color.fromARGB(213, 0, 0, 0),
+                                color: Color.fromARGB(155, 0, 0, 0),
                               ),
-                              child: Text(note.description, style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),),
+                              child: Text(
+                                note.description,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20,
+                                ),
+                              ),
                             ),
                           ],
                         ),

@@ -17,6 +17,7 @@ class _AddNotePageState extends State<AddNotePage> {
   // Text editing controllers to save user input
   TextEditingController controllerTitle = TextEditingController();
   TextEditingController controllerNote = TextEditingController();
+  bool testing = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,7 +62,7 @@ class _AddNotePageState extends State<AddNotePage> {
                         child: TextFormField(
                           controller: controllerNote,
                           keyboardType: TextInputType.multiline,
-                          maxLines: 13,
+                          maxLines: 10,
                           decoration: InputDecoration(
                             hintText: "Note: just start writing...",
                             contentPadding: EdgeInsets.all(8.0),
@@ -72,12 +73,14 @@ class _AddNotePageState extends State<AddNotePage> {
                         ),
                       ),
                       SizedBox(height: 20),
+                      // Add check boxes / checklist
+                      // TODO
                       // Saves the Note title, and Note description into database
                       ElevatedButton(
                         onPressed: () {
                           setState(() {
                             // Check if note already exists
-                            
+
                             // Pop up to give the user confirmation that the note was created succesfuly
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(

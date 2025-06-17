@@ -23,9 +23,7 @@ class MyApp extends StatefulWidget {
   State<MyApp> createState() => _MyAppState();
 }
 
-
 class _MyAppState extends State<MyApp> {
-
   @override
   void initState() {
     super.initState();
@@ -43,10 +41,11 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(colorScheme: ColorScheme.fromSeed(
-      seedColor: Color.fromARGB(186, 230, 164, 22),
-      brightness: Brightness.dark,
-      )
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Color.fromARGB(186, 230, 164, 22),
+          brightness: Brightness.dark,
+        ),
       ),
       home: WidgetTree(),
     );

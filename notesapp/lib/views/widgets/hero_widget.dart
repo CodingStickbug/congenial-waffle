@@ -13,7 +13,7 @@ class HeroWidget extends StatelessWidget {
           child: ClipRRect(
             borderRadius: BorderRadiusGeometry.circular(20.0),
             child: Image.asset(
-              "assets/images/aequitas.jpg",
+              "assets/images/aequitasLogo.jpg",
             ),
           ),
         ),

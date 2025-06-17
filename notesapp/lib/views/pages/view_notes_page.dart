@@ -32,7 +32,7 @@ class _ViewNotesPageState extends State<ViewNotesPage> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      tileColor: Color.fromARGB(213, 0, 0, 0),
+                      tileColor: Color.fromARGB(155, 0, 0, 0),
                       contentPadding: EdgeInsets.all(8),
                       // Push to view individual note, provide noteId for notePage()
                       onTap: () {
@@ -48,7 +48,10 @@ class _ViewNotesPageState extends State<ViewNotesPage> {
                         });
                       },
                       // Note information
-                      title: Text(note.title, style: TextStyle(color: Colors.white),),
+                      title: Text(
+                        note.title,
+                        style: TextStyle(color: Colors.white),
+                      ),
                       // Delete Notes
                       trailing: IconButton(
                         onPressed: () {
