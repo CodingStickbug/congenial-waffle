@@ -37,7 +37,7 @@ class _AddNotePageState extends State<AddNotePage> {
                         "Add Note",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 30,
+                          fontSize: 35,
                         ),
                       ),
                       SizedBox(height: 20),
@@ -73,14 +73,12 @@ class _AddNotePageState extends State<AddNotePage> {
                         ),
                       ),
                       SizedBox(height: 20),
-                      // Add check boxes / checklist
-                      // TODO
                       // Saves the Note title, and Note description into database
                       ElevatedButton(
                         onPressed: () {
                           setState(() {
                             // Check if note already exists
-
+                            // TO DO ONE DAY
                             // Pop up to give the user confirmation that the note was created succesfuly
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(

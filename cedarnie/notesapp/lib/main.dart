@@ -3,7 +3,6 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:notesapp/data/database/boxes.dart';
 import 'package:notesapp/data/database/note.dart';
 import 'package:notesapp/views/widgets/widget_tree.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 // The main file that links it all together. This runs the program
 
@@ -27,14 +26,9 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    // Initialize Theme
-    initThememode();
   }
 
-  // Check the user shared preferences theme
   Future<void> initThememode() async {
-    // ignore: unused_local_variable
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
   }
 
   @override
