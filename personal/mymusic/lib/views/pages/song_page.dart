@@ -3,9 +3,14 @@ import 'package:mymusic/data/playlist_provider.dart';
 import 'package:mymusic/views/widgets/neu_box.dart';
 import 'package:provider/provider.dart';
 
-class SongPage extends StatelessWidget {
+class SongPage extends StatefulWidget {
   const SongPage({super.key});
 
+  @override
+  State<SongPage> createState() => _SongPageState();
+}
+
+class _SongPageState extends State<SongPage> {
   String formatTime(Duration duration) {
     String twoDigitSeconds = duration.inSeconds.remainder(60).toString();
     String formattedtime = "${duration.inMinutes}:$twoDigitSeconds";
@@ -53,9 +58,7 @@ class SongPage extends StatelessWidget {
                             children: [
                               ClipRRect(
                                 borderRadius: BorderRadiusGeometry.circular(12),
-                                child: Image.asset(
-                                  currentSongIndex.imagePath,
-                                ),
+                                child: Image.asset(currentSongIndex.imagePath),
                               ),
                               Padding(
                                 padding: const EdgeInsets.all(15.0),
@@ -115,7 +118,9 @@ class SongPage extends StatelessWidget {
                               value: value.currentDuration.inSeconds.toDouble(),
                               onChanged: (double double) {},
                               onChangeEnd: (double double) {
-                                value.seek(Duration(seconds: double.toInt()));
+                                setState(() {
+                                  value.seek(Duration(seconds: double.toInt()));
+                                });
                               },
                             ),
                           ],
@@ -139,7 +144,13 @@ class SongPage extends StatelessWidget {
                               flex: 2,
                               child: GestureDetector(
                                 onTap: value.pauseOrResume,
-                                child: NeuBox(child: Icon(value.isPlaying ? Icons.pause : Icons.play_arrow)),
+                                child: NeuBox(
+                                  child: Icon(
+                                    value.isPlaying
+                                        ? Icons.pause
+                                        : Icons.play_arrow,
+                                  ),
+                                ),
                               ),
                             ),
                             Expanded(

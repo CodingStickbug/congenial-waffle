@@ -7,15 +7,15 @@ part 'song.g.dart';
 
 @HiveType(typeId: 1)
 class Song extends ChangeNotifier {
-  Song({required this.songTitle, required this.audio});
+  Song({required this.songTitle, required this.audio, required this.imagePath, required this.artist});
   @HiveField(0)
   String songTitle;
 
   @HiveField(1)
-  String? artist;
+  String artist;
 
   @HiveField(2)
-  String? imagePath;
+  String imagePath;
 
   @HiveField(3)
   String audio;
@@ -35,21 +35,21 @@ class Song extends ChangeNotifier {
   bool _isPlaying = false;
 
   void play() async {
+    _isPlaying = true;
     await _audioPlayer.stop();
     await _audioPlayer.play(AssetSource(audio));
-    _isPlaying = true;
     notifyListeners();
   }
   void pause() async {
-    await _audioPlayer.pause();
     _isPlaying = false;
+    await _audioPlayer.pause();
     notifyListeners();
   }
 
   // Resume song
   void resume() async {
-    await _audioPlayer.resume();
     _isPlaying = true;
+    await _audioPlayer.resume();
     notifyListeners();
   }
 

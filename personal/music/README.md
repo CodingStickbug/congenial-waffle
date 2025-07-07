@@ -2,6 +2,10 @@
 
 A new Flutter project.
 
+
+# To generate database
+dart run build_runner build
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.

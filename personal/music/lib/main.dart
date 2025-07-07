@@ -5,10 +5,13 @@ import 'package:music/data/database/song.dart';
 import 'package:music/themes/dark_mode.dart';
 import 'package:music/views/widgets/widget_tree.dart';
 
-void main() async{
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   Hive.registerAdapter(SongAdapter());
   boxSongs = await Hive.openBox<Song>("songBox");
+  //Init notifications
   runApp(const MyApp());
 }
 
@@ -23,9 +26,8 @@ class MyApp extends StatelessWidget {
       home: WidgetTree(),
     );
   }
+
   Widget appBar(String title) {
-    return AppBar(
-      title: Center(child: Text(title)),
-    );
+    return AppBar(title: Center(child: Text(title)));
   }
 }

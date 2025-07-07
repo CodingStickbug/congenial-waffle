@@ -19,9 +19,9 @@ class SongAdapter extends TypeAdapter<Song> {
     return Song(
       songTitle: fields[0] as String,
       audio: fields[3] as String,
-    )
-      ..artist = fields[1] as String?
-      ..imagePath = fields[2] as String?;
+      imagePath: fields[2] as String,
+      artist: fields[1] as String,
+    );
   }
 
   @override
