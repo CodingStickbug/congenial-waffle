@@ -1,0 +1,369 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "name": "notesapp",
+            "cwd": "notesapp",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "notesapp (profile mode)",
+            "cwd": "notesapp",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "notesapp (release mode)",
+            "cwd": "notesapp",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "testarea",
+            "cwd": "testarea",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "testarea (profile mode)",
+            "cwd": "testarea",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "testarea (release mode)",
+            "cwd": "testarea",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "notesapp",
+            "cwd": "cedarnie\\notesapp",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "notesapp (profile mode)",
+            "cwd": "cedarnie\\notesapp",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "notesapp (release mode)",
+            "cwd": "cedarnie\\notesapp",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "fluttertut",
+            "cwd": "FlutteryStudiery\\fluttertut",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "fluttertut (profile mode)",
+            "cwd": "FlutteryStudiery\\fluttertut",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "fluttertut (release mode)",
+            "cwd": "FlutteryStudiery\\fluttertut",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "fluttery",
+            "cwd": "FlutteryStudiery\\fluttery",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "fluttery (profile mode)",
+            "cwd": "FlutteryStudiery\\fluttery",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "fluttery (release mode)",
+            "cwd": "FlutteryStudiery\\fluttery",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "flutter_application_1",
+            "cwd": "FlutteryStudiery\\flutter_application_1",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "flutter_application_1 (profile mode)",
+            "cwd": "FlutteryStudiery\\flutter_application_1",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "flutter_application_1 (release mode)",
+            "cwd": "FlutteryStudiery\\flutter_application_1",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "shared",
+            "cwd": "FlutteryStudiery\\shared",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "shared (profile mode)",
+            "cwd": "FlutteryStudiery\\shared",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "shared (release mode)",
+            "cwd": "FlutteryStudiery\\shared",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "music",
+            "cwd": "personal\\music",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "music (profile mode)",
+            "cwd": "personal\\music",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "music (release mode)",
+            "cwd": "personal\\music",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "mymusic",
+            "cwd": "personal\\mymusic",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "mymusic (profile mode)",
+            "cwd": "personal\\mymusic",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "mymusic (release mode)",
+            "cwd": "personal\\mymusic",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "flutterswitch",
+            "cwd": "Test\\flutterswitch",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "flutterswitch (profile mode)",
+            "cwd": "Test\\flutterswitch",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "flutterswitch (release mode)",
+            "cwd": "Test\\flutterswitch",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "justaudio",
+            "cwd": "Test\\justaudio",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "justaudio (profile mode)",
+            "cwd": "Test\\justaudio",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "justaudio (release mode)",
+            "cwd": "Test\\justaudio",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "localdb",
+            "cwd": "Test\\localdb",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "localdb (profile mode)",
+            "cwd": "Test\\localdb",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "localdb (release mode)",
+            "cwd": "Test\\localdb",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "notifiers",
+            "cwd": "Test\\notifiers",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "notifiers (profile mode)",
+            "cwd": "Test\\notifiers",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "notifiers (release mode)",
+            "cwd": "Test\\notifiers",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "quicknotif",
+            "cwd": "Test\\quicknotif",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "quicknotif (profile mode)",
+            "cwd": "Test\\quicknotif",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "quicknotif (release mode)",
+            "cwd": "Test\\quicknotif",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "retrieve",
+            "cwd": "Test\\retrieve",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "retrieve (profile mode)",
+            "cwd": "Test\\retrieve",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "retrieve (release mode)",
+            "cwd": "Test\\retrieve",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "testing",
+            "cwd": "Test\\testing",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "testing (profile mode)",
+            "cwd": "Test\\testing",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "testing (release mode)",
+            "cwd": "Test\\testing",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "winotif",
+            "cwd": "Test\\winotif",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "winotif (profile mode)",
+            "cwd": "Test\\winotif",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "winotif (release mode)",
+            "cwd": "Test\\winotif",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "coolapp",
+            "cwd": "FlutteryStudiery\\fireShipFlutter\\coolapp",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "coolapp (profile mode)",
+            "cwd": "FlutteryStudiery\\fireShipFlutter\\coolapp",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "coolapp (release mode)",
+            "cwd": "FlutteryStudiery\\fireShipFlutter\\coolapp",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
