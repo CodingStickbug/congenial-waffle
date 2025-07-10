@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api, avoid_print, use_build_context_synchronously
+
 import 'dart:async';
 import 'dart:io';
 
@@ -196,7 +198,7 @@ class _EmailSenderState extends State<EmailSender> {
   Future<void> _attachFileFromAppDocumentsDirectoy() async {
     try {
       final appDocumentDir = await getApplicationDocumentsDirectory();
-      final filePath = appDocumentDir.path + '/file.txt';
+      final filePath = '${appDocumentDir.path}/file.txt';
       final file = File(filePath);
       await file.writeAsString('Text file in app directory');
 
