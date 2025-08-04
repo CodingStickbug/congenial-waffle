@@ -40,7 +40,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    player.setAsset("assets/music/thbs.mp3");
+    player.setUrl("https://open.spotify.com/track/7Gxf7hWyHaQjCTXtqOkNNV");
 
     player.positionStream.listen((p) {
       setState(() {

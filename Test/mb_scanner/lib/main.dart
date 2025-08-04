@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
@@ -13,8 +14,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         body: MobileScanner(
-          onDetect: (result) {
-            print(result.barcodes.first.rawValue);
+          onDetect: (capture) {
+            final barcode = capture.barcodes.first;
+            if (kDebugMode) {
+              print('Type: ${barcode.format} Data: ${barcode.rawValue}');
+            }
           },
         ),
       ),
