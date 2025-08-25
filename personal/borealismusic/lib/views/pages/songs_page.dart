@@ -1,9 +1,9 @@
 import 'package:borealismusic/constants/app_colors.dart';
+import 'package:borealismusic/constants/constants.dart';
 import 'package:borealismusic/data/database/boxes.dart';
 import 'package:borealismusic/data/database/song.dart';
 import 'package:borealismusic/functions/file_picker_functions.dart';
 import 'package:flutter/material.dart';
-import 'package:just_audio/just_audio.dart';
 
 class SongsPage extends StatefulWidget {
   const SongsPage({super.key});
@@ -13,58 +13,39 @@ class SongsPage extends StatefulWidget {
 }
 
 class _SongsPageState extends State<SongsPage> {
-  final player = AudioPlayer();
-
-  String formatDuration(Duration d) {
-    final minutes = d.inMinutes.remainder(60);
-    final seconds = d.inSeconds.remainder(60);
-    return "${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}";
-  }
-
-  void pauseOrPlay() {
-    if (player.playing) {
-      player.pause();
-    } else {
-      player.play();
-    }
-  }
-
-  void handleSeek(double value) {
-    player.seek(Duration(seconds: value.toInt()));
-  }
-
   Duration position = Duration.zero;
   Duration totalDuration = Duration.zero;
 
-  @override
-  void initState() {
-    super.initState();
+  // @override
+  // void initState() {
+  //   super.initState();
 
-    player.positionStream.listen((p) {
-      setState(() {
-        position = p;
-      });
-    });
+  //   player.positionStream.listen((p) {
+  //     setState(() {
+  //       position = p;
+  //     });
+  //   });
 
-    player.durationStream.listen((d) {
-      setState(() {
-        totalDuration = d!;
-      });
-    });
+  //   player.durationStream.listen((d) {
+  //     setState(() {
+  //       totalDuration = d!;
+  //     });
+  //   });
 
-    player.playerStateStream.listen((state) {
-      if (state.processingState == ProcessingState.completed) {
-        setState(() {
-          position = Duration.zero;
-        });
-        player.pause();
-        player.seek(position);
-      }
-    });
-  }
+  //   player.playerStateStream.listen((state) {
+  //     if (state.processingState == ProcessingState.completed) {
+  //       setState(() {
+  //         position = Duration.zero;
+  //       });
+  //       player.pause();
+  //       player.seek(position);
+  //     }
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
+    bool enabled = false;
     return Scaffold(
       backgroundColor: backgroundColor,
       body: Center(
@@ -93,33 +74,60 @@ class _SongsPageState extends State<SongsPage> {
                     Song(name: file!.name, pathName: file.path!),
                   );
                 },
-                child: Text("Add Song"),
+                child: Text(
+                  "Add Song",
+                  style: TextStyle(fontFamily: "Borealis"),
+                ),
               ),
             ),
+            SizedBox(height: 10),
             Expanded(
-              child: ListView.builder(
-                itemCount: boxSongs.length,
-                itemBuilder: (context, index) {
-                  Song song = boxSongs.getAt(index);
-                  return ListTile(
-                    onTap: () async {
-                      await player.setFilePath(song.pathName);
-                      player.play();
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) {
-                      //       return SongPage(songName: song.name);
-                      //     },
-                      //   ),
-                      // );
-                    },
-                    title: Text(
-                      song.name,
-                      style: TextStyle(color: mainTextColor),
-                    ),
-                  );
-                },
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width * 0.9,
+                child: ListView.builder(
+                  itemCount: boxSongs.length,
+                  itemBuilder: (context, index) {
+                    Song song = boxSongs.getAt(index);
+                    return Column(
+                      children: [
+                        SizedBox(height: 5,),
+                        Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(color: const Color.fromARGB(134, 128, 165, 182),),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: ListTile(
+                            selected: enabled,
+                            onTap: () async {
+                              setState(() {
+                                enabled = true;
+                              });
+                              await player.setFilePath(song.pathName);
+                              player.play();
+                              // if (context.mounted) {
+                              //   Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //       builder: (context) {
+                              //         return SongPage(songName: song.name);
+                              //       },
+                              //     ),
+                              //   );
+                              // }
+                            },
+                            title: Text(
+                              song.name,
+                              style: TextStyle(
+                                color: mainTextColor,
+                                fontFamily: "Borealis",
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    );
+                  },
+                ),
               ),
             ),
           ],
