@@ -68,7 +68,7 @@ class _SongsPageState extends State<SongsPage> {
               child: FilledButton(
                 style: FilledButton.styleFrom(backgroundColor: mainButtonColor),
                 onPressed: () async {
-                  var file = await pickFile();
+                  var file = await pickFileAndSaveLocally();
                   boxSongs.put(
                     "key_${file?.name}",
                     Song(name: file!.name, pathName: file.path!),
@@ -99,6 +99,8 @@ class _SongsPageState extends State<SongsPage> {
                           child: ListTile(
                             selected: enabled,
                             onTap: () async {
+                              print("LOOOOOOOOOOOK HEREEEEEEEEEEEEEE ===========>>>>>${song.hashCode}");
+                              print(song.pathName);
                               setState(() {
                                 enabled = true;
                               });
